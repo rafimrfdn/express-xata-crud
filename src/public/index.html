@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <title>Xata User Insertion with Htmx</title>
+</head>
+<body>
+  <h1>Create User</h1>
+  <form hx-target="#result" hx-post="/users/create-user">
+    <label for="nama">Name:</label>
+    <input type="text" name="nama" id="nama" placeholder="Enter your name">
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" placeholder="Enter your email">
+    <br>
+    <label for="password">Password:</label>
+    <input type="text" name="password" id="password" placeholder="Enter your password">
+    <br>
+    <button type="submit">Submit</button>
+  </form>
+
+
+  <div hx-get="/users/all" hx-trigger="load"></div>
+
+    <div id="result"></div>
+
+  <div id="update"></div>
+  <div id="delete"></div>
+
+  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+</body>
+</html>
